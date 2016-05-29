@@ -3,6 +3,7 @@ import {App, Platform, Nav} from 'ionic-angular';
 import {StatusBar} from 'ionic-native';
 import {LoginPage} from './pages/login/login';
 import {LeaderboardPage} from './pages/leaderboard/leaderboard';
+import {RegisterPage} from './pages/register/register';
 
 
 
@@ -20,7 +21,8 @@ export class MyApp {
     this.initializeApp();
     this.pages = [
       {title : 'Chat', component: LoginPage},
-      {title : 'Leaderboard', component: LeaderboardPage}
+      {title : 'Leaderboard', component: LeaderboardPage},
+      {title : 'Register', component: RegisterPage}
     ];
     
    

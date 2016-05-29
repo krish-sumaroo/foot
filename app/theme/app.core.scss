@@ -10,3 +10,8 @@
 @import "../pages/register/register.scss";
 @import "../pages/login/login.scss";
 @import "../pages/leaderboard/leaderboard.scss";
+@import "../pages/leaderfriend/leaderfriend.scss";
+@import "../pages/leadermain/leadermain.scss";
+@import "../pages/leaderlocation/leaderlocation.scss";
+
+ion-tabs ion-navbar-section { display: none; }
