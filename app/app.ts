@@ -4,6 +4,7 @@ import {StatusBar} from 'ionic-native';
 import {LoginPage} from './pages/login/login';
 import {LeaderboardPage} from './pages/leaderboard/leaderboard';
 import {RegisterPage} from './pages/register/register';
+import {ActionsPage} from './pages/actions/actions';
 
 
 
@@ -14,7 +15,7 @@ import {RegisterPage} from './pages/register/register';
 })
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
-  rootPage: any = LeaderboardPage;
+  rootPage: any = ActionsPage;
   pages:Array<{title: string, component: any}>
 
   constructor(private platform: Platform) {
