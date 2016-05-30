@@ -8,3 +8,7 @@ plugins/
 *.swp
 .DS_Store
 Thumbs.db
+
+# Illustrator Source File
+*.ai
+
