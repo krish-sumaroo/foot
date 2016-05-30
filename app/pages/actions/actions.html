@@ -13,11 +13,11 @@
     <ion-item>
        SCORE
        <ion-badge item-right danger>1</ion-badge>
-       <ion-badge item-right>5000</ion-badge>
+       <ion-badge item-right>{{points}}</ion-badge>
     </ion-item>
     <ion-item>
       <ion-avatar item-left>
-          <img src="../../../img/eng.png">
+          <img src="{{team1}}">
       </ion-avatar>
       <ion-item><ion-select>
       <ion-option value="nes">NES</ion-option>
@@ -33,7 +33,7 @@
       </ion-avatar>        
     </ion-item>       
     <ion-item>
-         <button clear>+</button>
+         <button clear (click)="add('score')">+</button>
          <button>Go</button>
          <button clear>-</button> 
     </ion-item>  

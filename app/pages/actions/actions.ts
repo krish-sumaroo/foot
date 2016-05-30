@@ -10,5 +10,35 @@ import {Page, NavController} from 'ionic-angular';
   templateUrl: 'build/pages/actions/actions.html',
 })
 export class ActionsPage {
-  constructor(public nav: NavController) {}
+  public score;
+  public imgUrl = '../../../img/';
+  constructor(public nav: NavController) {
+    this.scoreObj();
+    
+  }
+  
+  scoreObj(){
+    var initialObj = this.dataObj();
+    
+    //set initial values
+    this.points = initialObj.points[0];
+    this.team1 = this.imgUrl+initialObj.team1.name+'.png';
+    //this.score = {'points':'650', 'team1':'../../../img/eng.png','team2':'fra'};
+  }
+  
+  dataObj(){
+    var jsonObj = {'points':[5000,3000,1500,500],
+                  'team1': {'name':'eng'},
+                  'team2': {'name':'fra'}
+                }
+    return jsonObj;            
+  }
+  
+  add(module){
+    switch(module){
+      case 'score':
+      console.log('what');
+      break;
+    }  
+  }
 }
