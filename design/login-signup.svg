@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 18.1.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 595.3 841.9" enable-background="new 0 0 595.3 841.9" xml:space="preserve">
+<rect x="13" y="16" opacity="0.77" fill="#1C75BC" width="218" height="358"/>
+<text transform="matrix(1 0 0 1 50.5502 103.5598)" opacity="0.4" fill="#FFFFFF" font-family="'Roboto-Medium'" font-size="14">username</text>
+<rect x="50.6" y="112" fill="#FFFFFF" width="142.9" height="3"/>
+<text transform="matrix(1 0 0 1 50.5502 176.5598)" opacity="0.4" fill="#FFFFFF" font-family="'Roboto-Medium'" font-size="14">password</text>
+<rect x="50.6" y="185" fill="#FFFFFF" width="142.9" height="3"/>
+<path fill="#1C75BC" d="M189.4,264.1H56c-2.6,0-4.7-2.1-4.7-4.7v-35.5c0-2.6,2.1-4.7,4.7-4.7h133.4c2.6,0,4.7,2.1,4.7,4.7v35.5
+	C194.1,262,192,264.1,189.4,264.1z"/>
+<text transform="matrix(1 0 0 1 102.8612 246.9165)" fill="#FFFFFF" font-family="'Roboto-Medium'" font-size="18">login</text>
+<text transform="matrix(1 0 0 1 63.5505 294.5598)" fill="#FFFFFF" font-family="'Roboto-Regular'" font-size="12">forgot your password?</text>
+<text transform="matrix(1 0 0 1 173.5505 348.5598)" fill="#FFFFFF" font-family="'Roboto-Medium'" font-size="12">sign up</text>
+<rect x="260" y="21" opacity="0.77" fill="#1C75BC" width="218" height="358"/>
+<text transform="matrix(1 0 0 1 297.5502 108.5598)" opacity="0.4" fill="#FFFFFF" font-family="'Roboto-Medium'" font-size="14">username</text>
+<rect x="297.6" y="117" fill="#FFFFFF" width="142.9" height="3"/>
+<text transform="matrix(1 0 0 1 297.5502 181.5598)" opacity="0.4" fill="#FFFFFF" font-family="'Roboto-Medium'" font-size="14">password</text>
+<rect x="297.6" y="190" fill="#FFFFFF" width="142.9" height="3"/>
+<text transform="matrix(1 0 0 1 297.55 246.9167)" opacity="0.4" fill="#FFFFFF" font-family="'Roboto-Medium'" font-size="14">repeat your password</text>
+<rect x="297.6" y="255.3" fill="#FFFFFF" width="142.9" height="3"/>
+<path fill="#1C75BC" d="M435.7,339.5H302.3c-2.6,0-4.7-2.1-4.7-4.7v-35.5c0-2.6,2.1-4.7,4.7-4.7h133.4c2.6,0,4.7,2.1,4.7,4.7v35.5
+	C440.5,337.4,438.3,339.5,435.7,339.5z"/>
+<text transform="matrix(1 0 0 1 339.6401 322.2927)" fill="#FFFFFF" font-family="'Roboto-Medium'" font-size="18">sign up</text>
+<rect x="-31" y="-83" fill="#27AAE1" width="218" height="33"/>
+<text transform="matrix(1 0 0 1 275.5505 363.5598)" fill="#FFFFFF" font-family="'Roboto-Regular'" font-size="12">reset</text>
+<text transform="matrix(1 0 0 1 431.5505 361.5601)" fill="#FFFFFF" font-family="'Roboto-Medium'" font-size="12">login</text>
+</svg>
