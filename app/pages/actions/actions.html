@@ -5,17 +5,16 @@
   Ionic pages and navigation.
 -->
 <ion-navbar *navbar>
-  <ion-title>actions</ion-title>
+  <ion-title>Units left:{{units}}</ion-title>
 </ion-navbar>
 
-<ion-content padding class="actions">
+<ion-content padding class="card-background-page">
   <ion-card>
-    <ion-item>
-       SCORE
-       <ion-badge item-right danger>1</ion-badge>
-       <ion-badge item-right>{{points}}</ion-badge>
-    </ion-item>
-    <ion-item>
+    <img src="img/score.png">
+    <ion-card-header>
+      Go for <ion-badge> {{points}}</ion-badge>  points
+    </ion-card-header>
+    <ion-item class="score-item">
       <ion-avatar item-left>
           <img src="{{team1}}">
       </ion-avatar>
@@ -23,13 +22,13 @@
       <ion-option value="nes">NES</ion-option>
       <ion-option value="n64">Nintendo64</ion-option>  
       </ion-select></ion-item>
-      <span>VS</span>
+      <span>:</span>
       <ion-item><ion-select #team2scoreid [(ngModel)]="team2score" (change)="test(team2score)">
       <ion-option value="nes" checked="true">NES</ion-option>
       <ion-option value="n64">Nintendo64</ion-option>  
       </ion-select></ion-item>
       <ion-avatar item-right>
-          <img src="../../../img/fra.png">
+          <img src="img/fra.png">
       </ion-avatar>        
     </ion-item>       
     <ion-item>
@@ -40,11 +39,10 @@
   </ion-card>
   
   <ion-card>
-    <ion-item>
-       WIN
-       <ion-badge item-right danger>1</ion-badge>
-       <ion-badge item-right>2000</ion-badge>
-    </ion-item>
+     <img src="img/win.png">
+    <ion-card-header>
+      Go for <ion-badge> {{points}}</ion-badge>  points
+    </ion-card-header> 
     <ion-item>
       <ion-avatar item-left>
           <img src="../../../img/eng.png">
@@ -64,41 +62,53 @@
   </ion-card>
   
   <ion-card>
-    <ion-item>
-       SCORER
-       <ion-badge item-right danger>1</ion-badge>
-       <ion-badge item-right>2000</ion-badge>
-    </ion-item>
-    <ion-item>
-      <ion-avatar item-left>
-          <img src="../../../img/eng.png">
-      </ion-avatar>
-      <h2>VARDY</h2>
-     </ion-item>      
-    <ion-item>
-         <button clear>+</button>
-         <button>Go</button>
-         <button clear>-</button> 
-    </ion-item>  
+        <img src="img/scorer.png">
+    <ion-card-header>
+      Go for <ion-badge> {{scoreDataPointsRealTime}}</ion-badge>  points
+    </ion-card-header>    
+    <ion-card-content>
+       <ion-list>
+          <ion-item-sliding *ngFor="#player of players1">
+            <ion-item >
+              <ion-avatar item-left>
+                  <img src="{{flag1}}">
+              </ion-avatar>
+              <h3>{{player.lname}}</h3>
+            </ion-item>
+            <ion-item-options>
+              <button primary (click)="addScorer($event, player)">
+                +
+              </button>
+              <button danger>
+                -
+              </button>
+              <button secondary>
+                <ion-icon name="call"></ion-icon>
+                Go
+              </button>
+            </ion-item-options>        
+          </ion-item-sliding>
+          <ion-item-sliding *ngFor="#player of players2">
+            <ion-item >
+              <ion-avatar item-left>
+                  <img src="{{flag2}}">
+              </ion-avatar>
+              <h3>{{player.lname}}</h3>
+            </ion-item>
+            <ion-item-options>
+              <button primary (click)="addScorer($event, player)">
+                +
+              </button>
+              <button danger>
+                -
+              </button>
+              <button secondary>
+                <ion-icon name="call"></ion-icon>
+                Go
+              </button>
+            </ion-item-options>        
+          </ion-item-sliding>
+      </ion-list>
+     </ion-card-content>      
   </ion-card>
-  
-   <ion-card>
-    <ion-item>
-       SCORER
-       <ion-badge item-right danger>1</ion-badge>
-       <ion-badge item-right>2000</ion-badge>
-    </ion-item>
-    <ion-item>
-      <ion-avatar item-left>
-          <img src="../../../img/fra.png">
-      </ion-avatar>
-      <h2>GIROUD</h2>
-     </ion-item>      
-    <ion-item>
-         <button clear>+</button>
-         <button>Go</button>
-         <button clear>-</button> 
-    </ion-item>  
-  </ion-card>  
-  
 </ion-content>

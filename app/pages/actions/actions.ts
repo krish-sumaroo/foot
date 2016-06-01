@@ -1,4 +1,4 @@
-import {Page, NavController} from 'ionic-angular';
+import {Page, NavController, Toast} from 'ionic-angular';
 
 /*
   Generated class for the ActionsPage page.
@@ -11,9 +11,26 @@ import {Page, NavController} from 'ionic-angular';
 })
 export class ActionsPage {
   public score;
-  public imgUrl = '../../../img/';
   private scoreObjSave = false;
   private scoreObjVars = {'units':0};
+
+  //public imgUrl = '../../../img/'; for reference
+  public imgUrl = 'img/';
+  public scoreDataObj = {"team1":{"name":"eng","starters":[{"lname":"harry"},{"lname":"marcus"},{"lname":"wayne"}]},"team2":{"name":"fra","starters":[{"lname":"griezman"},{"lname":"giroud"},{"lname":"gignac"}]}};
+  public scoreDataPoints = [5000,3000,2000,1000];
+  public scoreDataPointsRealTime = this.scoreDataPoints[0];
+  public players1 = this.scoreDataObj.team1.starters;
+  public players2 = this.scoreDataObj.team2.starters;
+  public flag1 = this.imgUrl+this.scoreDataObj.team1.name+'.png';
+  public flag2 = this.imgUrl+this.scoreDataObj.team2.name+'.png';
+  public units = 2;
+  public actionPoints = 0;
+  
+  private scorerUnits = 0;
+  
+  
+  //private scorerUnits = 0; 
+
   constructor(public nav: NavController) {
     this.scoreObj();
     
@@ -40,6 +57,19 @@ export class ActionsPage {
     return jsonObj;            
   }
   
+  addScorer(event, item){
+    if(this.units > 0)
+    {
+      this.scorerUnits++;
+      console.log(this.scorerUnits)
+      this.scoreDataPointsRealTime = this.scorerUnits * this.scoreDataPoints[0];
+      this.units = this.units - 1;
+    }
+    else{
+      this.showToast('no more units Bub!');
+    }
+  }
+  
   add(module){
 
     switch(module){
@@ -48,6 +78,18 @@ export class ActionsPage {
       break;
     }  
   }
-  
-  
+
+  showToast(msg){
+    let toast = Toast.create({
+    message: msg,
+    duration: 3000
+  });
+
+    toast.onDismiss(() => {
+      //console.log('Dismissed toast');
+    });
+
+    this.nav.present(toast);
+  }
+
 }
