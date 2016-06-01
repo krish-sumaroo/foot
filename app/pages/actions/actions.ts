@@ -18,7 +18,6 @@ export class ActionsPage {
   public imgUrl = 'img/';
   public scoreDataObj = {"team1":{"name":"eng","starters":[{"lname":"harry"},{"lname":"marcus"},{"lname":"wayne"}]},"team2":{"name":"fra","starters":[{"lname":"griezman"},{"lname":"giroud"},{"lname":"gignac"}]}};
   public scoreDataPoints = [5000,3000,2000,1000];
-  public scoreDataPointsRealTime = this.scoreDataPoints[0];
   public players1 = this.scoreDataObj.team1.starters;
   public players2 = this.scoreDataObj.team2.starters;
   public flag1 = this.imgUrl+this.scoreDataObj.team1.name+'.png';
@@ -26,7 +25,13 @@ export class ActionsPage {
   public units = 2;
   public actionPoints = 0;
   
-  private scorerUnits = 0;
+  /** scorer logic */
+  public scorerUnits = 0;
+  public scoreDataPointsRealTime;
+  public scorerPoints = this.scoreDataPoints[0];
+  private tempUnits = 0;
+  private scorerSaveObj = {'status':false, 'obj':{'actionId':3,'actionActor':'','units':0}};
+
   
   
   //private scorerUnits = 0; 
@@ -58,16 +63,49 @@ export class ActionsPage {
   }
   
   addScorer(event, item){
+    event.stopPropagation();
     if(this.units > 0)
     {
+      this.tempUnits++;
       this.scorerUnits++;
-      console.log(this.scorerUnits)
+      console.log(this.scorerUnits);
       this.scoreDataPointsRealTime = this.scorerUnits * this.scoreDataPoints[0];
       this.units = this.units - 1;
+      if(this.scorerSaveObj.status)
+      {
+        this.scorerSaveObj.obj.actionActor = item.lname;
+        this.scorerSaveObj.obj.units = this.tempUnits;
+      }
+      else
+      {
+        this.scorerSaveObj.obj = {'actionId':3,'actionActor':item.lname,'units':this.tempUnits};
+        this.scorerSaveObj.status = true;
+      }
+      
     }
     else{
       this.showToast('no more units Bub!');
     }
+  }
+  
+  removeScorer(event, item){
+    if(this.scorerUnits > 0 && this.units != 0)
+    {
+      this.tempUnits--;
+      this.scorerUnits--;
+      this.scoreDataPointsRealTime = this.scorerUnits * this.scoreDataPoints[0];
+      this.units = this.units + 1;
+      this.scorerSaveObj.obj = {'actionId':3,'actionActor':item.lname,'units':this.tempUnits};
+    }
+  }
+  
+  resetScorer(event){
+    console.log('reset');
+    this.units = this.units + this.tempUnits;
+    this.tempUnits = 0;
+    this.scorerSaveObj.status = false;
+    this.scoreDataPointsRealTime = 0;
+    this.scorerUnits = 0;
   }
   
   add(module){

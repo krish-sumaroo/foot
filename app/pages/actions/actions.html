@@ -16,7 +16,7 @@
     </ion-card-header>
     <ion-item class="score-item">
       <ion-avatar item-left>
-          <img src="{{team1}}">
+          <img src="{{flag1}}">
       </ion-avatar>
       <ion-item><ion-select #team1scoreid [(ngModel)]="team1score" (change)="test(team1score)">
       <ion-option value="nes">NES</ion-option>
@@ -64,11 +64,13 @@
   <ion-card>
         <img src="img/scorer.png">
     <ion-card-header>
-      Go for <ion-badge> {{scoreDataPointsRealTime}}</ion-badge>  points
+      Go for <ion-badge> {{scoreDataPointsRealTime}}</ion-badge>  points |
+      Units <ion-badge> {{scorerUnits}}</ion-badge> : Points
+      <ion-badge> {{scoreDataPointsRealTime}}</ion-badge>
     </ion-card-header>    
     <ion-card-content>
        <ion-list>
-          <ion-item-sliding *ngFor="#player of players1">
+          <ion-item-sliding *ngFor="#player of players1" (click)="resetScorer($event)">
             <ion-item >
               <ion-avatar item-left>
                   <img src="{{flag1}}">
