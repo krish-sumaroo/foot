@@ -12,17 +12,23 @@ import {Page, NavController} from 'ionic-angular';
 export class ActionsPage {
   public score;
   public imgUrl = '../../../img/';
+  private scoreObjSave = false;
+  private scoreObjVars = {'units':0};
   constructor(public nav: NavController) {
     this.scoreObj();
     
+  }
+  
+  test(value){
+    console.log(value);
   }
   
   scoreObj(){
     var initialObj = this.dataObj();
     
     //set initial values
-    this.points = initialObj.points[0];
-    this.team1 = this.imgUrl+initialObj.team1.name+'.png';
+    //this.points = initialObj.points[0];
+    //this.team1 = this.imgUrl+initialObj.team1.name+'.png';
     //this.score = {'points':'650', 'team1':'../../../img/eng.png','team2':'fra'};
   }
   
@@ -35,10 +41,13 @@ export class ActionsPage {
   }
   
   add(module){
+
     switch(module){
       case 'score':
       console.log('what');
       break;
     }  
   }
+  
+  
 }
