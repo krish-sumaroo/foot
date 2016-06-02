@@ -24,6 +24,10 @@ export class ActionsPage {
   public flag2 = this.imgUrl+this.scoreDataObj.team2.name+'.png';
   public units = 2;
   public actionPoints = 0;
+  public team1score = 0;
+  public team2score = 0;
+  
+  public homewin; 
   
   /** scorer logic */
   public scorerUnits = 0;
@@ -33,16 +37,22 @@ export class ActionsPage {
   private scorerSaveObj = {'status':false, 'obj':{'actionId':3,'actionActor':'','units':0}};
 
   
-  
+  public scores = [0,1,2,3,4];
   //private scorerUnits = 0; 
+  
 
   constructor(public nav: NavController) {
-    this.scoreObj();
+    //this.scoreObj();
     
   }
   
   test(value){
     console.log(value);
+  }
+  
+  winAction(e){
+    if(e==3)
+    {    this.homewin = false;}
   }
   
   scoreObj(){

@@ -14,27 +14,51 @@
     <ion-card-header>
       Go for <ion-badge> {{points}}</ion-badge>  points
     </ion-card-header>
-    <ion-item class="score-item">
-      <ion-avatar item-left>
-          <img src="{{flag1}}">
-      </ion-avatar>
-      <ion-item><ion-select #team1scoreid [(ngModel)]="team1score" (change)="test(team1score)">
-      <ion-option value="nes">NES</ion-option>
-      <ion-option value="n64">Nintendo64</ion-option>  
-      </ion-select></ion-item>
-      <span>:</span>
-      <ion-item><ion-select #team2scoreid [(ngModel)]="team2score" (change)="test(team2score)">
-      <ion-option value="nes" checked="true">NES</ion-option>
-      <ion-option value="n64">Nintendo64</ion-option>  
-      </ion-select></ion-item>
-      <ion-avatar item-right>
-          <img src="img/fra.png">
-      </ion-avatar>        
-    </ion-item>       
     <ion-item>
-         <button clear (click)="add('score')">+</button>
-         <button>Go</button>
-         <button clear>-</button> 
+      <ion-row>
+        <ion-col width-20>
+          <ion-avatar>
+            <img src="{{flag1}}">
+          </ion-avatar>
+        </ion-col>
+        
+        <ion-col width-60>
+          <ion-row>
+            <ion-col width=43>
+              <ion-item class="input-box">
+                <ion-input class="scoreBox" type="tel" [(ngModel)]="team1score" (change)="test(team1score)">0</ion-input>        
+              </ion-item>
+            </ion-col>
+            
+            <ion-col width=6>
+              :
+            </ion-col>
+                        
+            <ion-col width=43>
+              <ion-item class="input-box">
+                <ion-input class="scoreBox" type="tel" [(ngModel)]="team2score" (change)="test(team2score)">0</ion-input>
+              </ion-item>
+            </ion-col>      
+          </ion-row>
+        </ion-col>        
+        <ion-col width-20>
+           <img src="{{flag2}}">
+        </ion-col>
+      </ion-row>
+     </ion-item>   
+                
+    <ion-item>
+      <ion-row>
+        <ion-col width-20>
+          <button clear (click)="add('score')">+</button>
+        </ion-col>
+        <ion-col width-60>
+           <button>Go</button>
+        </ion-col>
+        <ion-col width-20>
+           <button>-</button> 
+        </ion-col>    
+      </ion-row>
     </ion-item>  
   </ion-card>
   
@@ -45,13 +69,13 @@
     </ion-card-header> 
     <ion-item>
       <ion-avatar item-left>
-          <img src="../../../img/eng.png">
+          <img src="{{flag1}}">
       </ion-avatar>
-      <ion-item><ion-checkbox secondary></ion-checkbox></ion-item>
-      <ion-item><ion-checkbox checked="true"></ion-checkbox></ion-item>
-      <ion-item><ion-checkbox secondary></ion-checkbox></ion-item>
+      <ion-item><ion-checkbox secondary checked="true" [(ngModel)]="homewin" (change)="winAction(1)"></ion-checkbox></ion-item>
+      <ion-item><ion-checkbox checked="true" (change)="winAction(3)"></ion-checkbox></ion-item>
+      <ion-item><ion-checkbox secondary (change)="winAction(2)"></ion-checkbox></ion-item>
       <ion-avatar item-right>
-          <img src="../../../img/fra.png">
+          <img src="{{flag2}}">
       </ion-avatar>        
     </ion-item>       
     <ion-item>
