@@ -1,19 +1,23 @@
-<!--
-  Generated template for the ActionsPage page.
-
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-navbar *navbar>
+  <button menuToggle>
+    <ion-icon name="menu"></ion-icon>
+  </button>
   <ion-title>Units left:{{units}}</ion-title>
 </ion-navbar>
 
-<ion-content padding class="card-background-page">
+<ion-content padding class="bg">
   <ion-card>
     <img src="img/score.png">
-    <ion-card-header>
-      Go for <ion-badge> {{points}}</ion-badge>  points
-    </ion-card-header>
+      <ion-item>
+        <ion-row>
+          <ion-col width-80>
+              Go for <ion-badge> {{scorepoints}}</ion-badge>  points
+          </ion-col>
+          <ion-col width-20>
+            <ion-badge>{{scoreUnits}}</ion-badge> units
+          </ion-col>    
+        </ion-row>  
+      </ion-item>
     <ion-item>
       <ion-row>
         <ion-col width-20>
@@ -26,7 +30,7 @@
           <ion-row>
             <ion-col width=43>
               <ion-item class="input-box">
-                <ion-input class="scoreBox" type="tel" [(ngModel)]="team1score" (change)="test(team1score)">0</ion-input>        
+                <ion-input class="scoreBox" type="tel" [(ngModel)]="team1score" (change)="scoreAction('t1',team1score)">0</ion-input>        
               </ion-item>
             </ion-col>
             
@@ -36,7 +40,7 @@
                         
             <ion-col width=43>
               <ion-item class="input-box">
-                <ion-input class="scoreBox" type="tel" [(ngModel)]="team2score" (change)="test(team2score)">0</ion-input>
+                <ion-input class="scoreBox" type="tel" [(ngModel)]="team2score" (change)="scoreAction('t2',team2score)">0</ion-input>
               </ion-item>
             </ion-col>      
           </ion-row>
@@ -50,13 +54,13 @@
     <ion-item>
       <ion-row>
         <ion-col width-20>
-          <button clear (click)="add('score')">+</button>
+          <button block (click)="addScore()">+</button>
         </ion-col>
         <ion-col width-60>
-           <button>Go</button>
+           <button block>Go</button>
         </ion-col>
         <ion-col width-20>
-           <button>-</button> 
+           <button block (click)="delScore()">-</button> 
         </ion-col>    
       </ion-row>
     </ion-item>  
@@ -65,24 +69,60 @@
   <ion-card>
      <img src="img/win.png">
     <ion-card-header>
-      Go for <ion-badge> {{points}}</ion-badge>  points
-    </ion-card-header> 
+      <ion-row>
+          <ion-col width-80>
+              Go for <ion-badge> {{winpoints}}</ion-badge>  points
+          </ion-col>
+          <ion-col width-20>
+            <ion-badge>{{winUnits}}</ion-badge> units
+          </ion-col>    
+        </ion-row>
+    </ion-card-header>
+    
     <ion-item>
-      <ion-avatar item-left>
-          <img src="{{flag1}}">
-      </ion-avatar>
-      <ion-item><ion-checkbox secondary checked="true" [(ngModel)]="homewin" (change)="winAction(1)"></ion-checkbox></ion-item>
-      <ion-item><ion-checkbox checked="true" (change)="winAction(3)"></ion-checkbox></ion-item>
-      <ion-item><ion-checkbox secondary (change)="winAction(2)"></ion-checkbox></ion-item>
-      <ion-avatar item-right>
-          <img src="{{flag2}}">
-      </ion-avatar>        
-    </ion-item>       
+      <ion-row>
+        <ion-col width-20>
+          <ion-avatar item-left>
+            <img src="{{flag1}}">
+          </ion-avatar><br />
+           <ion-item>
+            <ion-checkbox secondary checked="true" [(ngModel)]="homewin" (change)="winAction(1)"></ion-checkbox>
+          </ion-item>
+        </ion-col>
+        
+        <ion-col width-60>
+          <ion-avatar item-left>
+            <img src="{{flag1}}">
+          </ion-avatar><br />
+           <ion-item>
+           <ion-checkbox checked="true" (change)="winAction(3)"></ion-checkbox>
+          </ion-item>
+        </ion-col>
+        
+        <ion-col width-20>
+          <ion-avatar item-left>
+            <img src="{{flag2}}">
+          </ion-avatar><br />
+           <ion-item>
+           <ion-checkbox secondary (change)="winAction(2)"></ion-checkbox>
+          </ion-item>
+        </ion-col>     
+      </ion-row>  
+    </ion-item>
+    
     <ion-item>
-         <button clear>+</button>
-         <button>Go</button>
-         <button clear>-</button> 
-    </ion-item>  
+      <ion-row>
+        <ion-col width-20>
+          <button block (click)="addWin()">+</button>
+        </ion-col>
+        <ion-col width-60>
+           <button block>Go</button>
+        </ion-col>
+        <ion-col width-20>
+           <button block (click)="delWin()">-</button> 
+        </ion-col>    
+      </ion-row>
+    </ion-item> 
   </ion-card>
   
   <ion-card>

@@ -16,3 +16,12 @@
 @import "../pages/actions/actions.scss";
 
 ion-tabs ion-navbar-section { display: none; }
+
+.bg.scroll-content {
+    background: url('../img/bg.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+
+

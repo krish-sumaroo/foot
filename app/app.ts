@@ -5,6 +5,7 @@ import {LoginPage} from './pages/login/login';
 import {LeaderboardPage} from './pages/leaderboard/leaderboard';
 import {RegisterPage} from './pages/register/register';
 import {ActionsPage} from './pages/actions/actions';
+import {FavteamPage} from './pages/favteam/favteam';
 
 
 
@@ -15,7 +16,7 @@ import {ActionsPage} from './pages/actions/actions';
 })
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
-  rootPage: any = ActionsPage;
+  rootPage: any = FavteamPage;
   pages:Array<{title: string, component: any}>
 
   constructor(private platform: Platform) {
@@ -23,7 +24,8 @@ export class MyApp {
     this.pages = [
       {title : 'Chat', component: LoginPage},
       {title : 'Leaderboard', component: LeaderboardPage},
-      {title : 'Register', component: RegisterPage}
+      {title : 'Register', component: RegisterPage},
+      {title : 'Actions', component : ActionsPage}
     ];
     
    

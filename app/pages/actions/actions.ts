@@ -13,6 +13,8 @@ export class ActionsPage {
   public score;
   private scoreObjSave = false;
   private scoreObjVars = {'units':0};
+  private actionTempObj = 0 ;
+  private tempUnits = 0;
 
   //public imgUrl = '../../../img/'; for reference
   public imgUrl = 'img/';
@@ -22,7 +24,7 @@ export class ActionsPage {
   public players2 = this.scoreDataObj.team2.starters;
   public flag1 = this.imgUrl+this.scoreDataObj.team1.name+'.png';
   public flag2 = this.imgUrl+this.scoreDataObj.team2.name+'.png';
-  public units = 2;
+  public units = 5;
   public actionPoints = 0;
   public team1score = 0;
   public team2score = 0;
@@ -32,9 +34,21 @@ export class ActionsPage {
   /** scorer logic */
   public scorerUnits = 0;
   public scoreDataPointsRealTime;
-  public scorerPoints = this.scoreDataPoints[0];
-  private tempUnits = 0;
+  public scorerPoints = this.scoreDataPoints[0];  
   private scorerSaveObj = {'status':false, 'obj':{'actionId':3,'actionActor':'','units':0}};
+  
+  /** score logic */
+  private scoreSaveObj = {'t1':0,'t2':0};
+  private scorePointsObj = [2000,1000,500];
+  public scorepoints;
+  private scorePointsNow;
+  public scoreUnits = 1;
+  
+  /** win logic */
+  public winpoints = 500;
+  public winUnits = 1;
+  private winBetUnits = 1;
+  private winPointsNow;
 
   
   public scores = [0,1,2,3,4];
@@ -42,9 +56,57 @@ export class ActionsPage {
   
 
   constructor(public nav: NavController) {
-    //this.scoreObj();
+    //this.scoreObj();   
+    
+    this.scorePointsNow = this.scorePointsObj[0];
+    this.scorepoints = this.scorePointsNow;
+    this.winPointsNow = this.winpoints;
+  }
+  
+  
+  /**** Win logic */
+  addWin(){
+    this.winUnits++;
+    this.winpoints = this.winUnits * this.winPointsNow;
+  }
+  
+  delWin(){
+    if(this.winUnits > 1){
+      this.winUnits--;
+      this.winpoints = this.winUnits * this.winPointsNow;
+    }
+  }
+  
+  winCap(a){
     
   }
+  
+  
+  /**** Score logic */
+  scoreAction(team, score)
+  {
+    if(team == 't1')
+    {
+      this.scoreSaveObj.t1 = score;
+    }
+    else
+    {
+      this.scoreSaveObj = score;
+    }
+  }
+  
+  addScore(){   
+      this.scoreUnits++;
+      this.scorepoints = this.scoreUnits * this.scorePointsNow;
+  }
+  
+  delScore(){
+    if(this.scoreUnits > 1){
+      this.scoreUnits--;
+      this.scorepoints = this.scoreUnits * this.scorePointsNow;
+    }
+  }
+  
   
   test(value){
     console.log(value);
@@ -138,6 +200,41 @@ export class ActionsPage {
     });
 
     this.nav.present(toast);
+  }
+  
+  //** utils function **/
+  checkPoints(){
+    if(this.units > 0)
+    {
+      return true;
+    }
+    else
+    {
+      this.showToast('no more units!');
+      return false;
+    }
+  }
+  
+  
+  resetTempUnits(action){
+    if (action == this.actionTempObj){
+      return true;
+    }
+    else
+    {
+      this.units = this.units + this.tempUnits;
+      this.tempUnits = 0;
+      return false;
+    }
+  }
+  checkActionUnits(action){
+    if (action == this.actionTempObj){
+      return true;
+    }
+    else
+    {
+      return false;
+    }
   }
 
 }
