@@ -5,7 +5,6 @@ import {AvatarpagePage} from '../../pages/avatarpage/avatarpage';
 import {TourpagePage} from '../../pages/tourpage/tourpage';
 import {NicknamepagePage} from '../../pages/nicknamepage/nicknamepage';
 
-
 /*
   Generated class for the ProfilepagePage page.
 
@@ -16,13 +15,10 @@ import {NicknamepagePage} from '../../pages/nicknamepage/nicknamepage';
   templateUrl: 'build/pages/profilepage/profilepage.html',
 })
 export class ProfilepagePage {
-  private pages;
   private storage;
   constructor(public nav: NavController, public platform:Platform) {
     this.nav = nav;
     this.initializeApp();
-    
-    this.pages = [{'fav':FavteamPage}];
   }
   
   openPage(page){
