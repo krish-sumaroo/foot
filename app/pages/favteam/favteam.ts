@@ -1,4 +1,5 @@
 import {Page, NavController} from 'ionic-angular';
+import {App, Platform, Storage, SqlStorage} from 'ionic-angular';
 
 /*
   Generated class for the FavteamPage page.
@@ -16,10 +17,13 @@ export class FavteamPage {
             };
           
  public groupA = this.teams.groupA;
- public groupB = this.teams.groupB;           
+ public groupB = this.teams.groupB;
+ private storage = new Storage(SqlStorage);
+            
   constructor(public nav: NavController) {}
   
   pickFavteam(team){
+   this.storage.query("INSERT INTO profile (favteam) VALUES ('"+ team +"')"); 
     console.log(team);
   }
 }

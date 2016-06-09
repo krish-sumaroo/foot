@@ -6,6 +6,9 @@ import {LeaderboardPage} from './pages/leaderboard/leaderboard';
 import {RegisterPage} from './pages/register/register';
 import {ActionsPage} from './pages/actions/actions';
 import {FavteamPage} from './pages/favteam/favteam';
+import {ProfilepagePage} from './pages/profilepage/profilepage';
+import {SliderPage} from './pages/slider/slider';
+import {TestPage} from './pages/test/test';
 
 
 
@@ -16,7 +19,7 @@ import {FavteamPage} from './pages/favteam/favteam';
 })
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
-  rootPage: any = FavteamPage;
+  rootPage: any = ActionsPage;
   pages:Array<{title: string, component: any}>
 
   constructor(private platform: Platform) {

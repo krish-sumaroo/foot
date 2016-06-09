@@ -1,13 +1,30 @@
 .scoreBox{
-    border: 1px solid #000;
+    padding-left: 6px;
+    font-weight: bold;
 }
 
 .input-box{
     padding: 0;
+    border: 1px #ccc solid;
 }
 
 .bg {
-    background: url(../../img/bg.png);
+   background: url(../../img/bg.png);
     background-repeat: no-repeat;
     background-size: cover;
 }
+
+.cardBg {
+    background-color: #044d9a;
+    color : #fff;
+}
+
+.scoreDivider {
+    text-align: center;
+    padding-top: 17px;
+}
+
+.item-border-bottom {
+   border-bottom: 1px solid #ccc;
+}
+

@@ -8,7 +8,7 @@
 <ion-content padding class="bg">
   <ion-card>
     <img src="img/score.png">
-      <ion-item>
+      <ion-item class="cardBg item-border-bottom">
         <ion-row>
           <ion-col width-80>
               Go for <ion-badge> {{scorepoints}}</ion-badge>  points
@@ -18,14 +18,11 @@
           </ion-col>    
         </ion-row>  
       </ion-item>
-    <ion-item>
+    <ion-item class="cardBg item-border-bottom">
       <ion-row>
-        <ion-col width-20>
-          <ion-avatar>
-            <img src="{{flag1}}">
-          </ion-avatar>
-        </ion-col>
-        
+        <ion-col width-20>         
+            <img src="{{flag1}}">        
+        </ion-col>        
         <ion-col width-60>
           <ion-row>
             <ion-col width=43>
@@ -34,7 +31,7 @@
               </ion-item>
             </ion-col>
             
-            <ion-col width=6>
+            <ion-col width=6 class="scoreDivider">
               :
             </ion-col>
                         
@@ -51,7 +48,7 @@
       </ion-row>
      </ion-item>   
                 
-    <ion-item>
+    <ion-item class="cardBg">
       <ion-row>
         <ion-col width-20>
           <button block (click)="addScore()">+</button>
@@ -81,28 +78,30 @@
     
     <ion-item>
       <ion-row>
-        <ion-col width-20>
-          <ion-avatar item-left>
-            <img src="{{flag1}}">
-          </ion-avatar><br />
+        <ion-col width-20>          
+            <img src="{{flag1}}">          
            <ion-item>
             <ion-checkbox secondary checked="true" [(ngModel)]="homewin" (change)="winAction(1)"></ion-checkbox>
           </ion-item>
         </ion-col>
         
         <ion-col width-60>
-          <ion-avatar item-left>
-            <img src="{{flag1}}">
-          </ion-avatar><br />
-           <ion-item>
-           <ion-checkbox checked="true" (change)="winAction(3)"></ion-checkbox>
-          </ion-item>
+          <ion-row>
+            <ion-col width-33>
+            </ion-col>
+            <ion-col width-33>
+               <img src="{{flag1}}">
+               <ion-item>
+              <ion-checkbox checked="true" (change)="winAction(3)"></ion-checkbox>
+              </ion-item>   
+            </ion-col>
+            <ion-col width-33>
+            </ion-col>    
+          </ion-row> 
         </ion-col>
         
         <ion-col width-20>
-          <ion-avatar item-left>
-            <img src="{{flag2}}">
-          </ion-avatar><br />
+           <img src="{{flag2}}">
            <ion-item>
            <ion-checkbox secondary (change)="winAction(2)"></ion-checkbox>
           </ion-item>
