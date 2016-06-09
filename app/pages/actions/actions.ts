@@ -1,4 +1,4 @@
-import {Page, NavController, Toast} from 'ionic-angular';
+import {Page, NavController, Toast,Loading} from 'ionic-angular';
 
 /*
   Generated class for the ActionsPage page.
@@ -10,6 +10,7 @@ import {Page, NavController, Toast} from 'ionic-angular';
   templateUrl: 'build/pages/actions/actions.html',
 })
 export class ActionsPage {
+  private loading;
   public score;
   private scoreObjSave = false;
   private scoreObjVars = {'units':0};
@@ -34,7 +35,8 @@ export class ActionsPage {
   /** scorer logic */
   public scorerUnits = 0;
   public scoreDataPointsRealTime;
-  public scorerPoints = this.scoreDataPoints[0];  
+  public scorerPoints = 500;
+  private scorerPointsNow;  
   private scorerSaveObj = {'status':false, 'obj':{'actionId':3,'actionActor':'','units':0}};
   
   /** score logic */
@@ -61,6 +63,8 @@ export class ActionsPage {
     this.scorePointsNow = this.scorePointsObj[0];
     this.scorepoints = this.scorePointsNow;
     this.winPointsNow = this.winpoints;
+    this.scorerPointsNow = this.scorerPoints;
+    //this.saveAndShowLoading();
   }
   
   
@@ -135,28 +139,13 @@ export class ActionsPage {
   }
   
   addScorer(event, item){
+    //gonna have to create object for each player element
     event.stopPropagation();
-    if(this.units > 0)
+    if(this.scorerUnits > 0)
     {
-      this.tempUnits++;
       this.scorerUnits++;
-      console.log(this.scorerUnits);
-      this.scoreDataPointsRealTime = this.scorerUnits * this.scoreDataPoints[0];
+      this.scorerPointsNow = this.scorerUnits * this.scorerPointsNow;
       this.units = this.units - 1;
-      if(this.scorerSaveObj.status)
-      {
-        this.scorerSaveObj.obj.actionActor = item.lname;
-        this.scorerSaveObj.obj.units = this.tempUnits;
-      }
-      else
-      {
-        this.scorerSaveObj.obj = {'actionId':3,'actionActor':item.lname,'units':this.tempUnits};
-        this.scorerSaveObj.status = true;
-      }
-      
-    }
-    else{
-      this.showToast('no more units Bub!');
     }
   }
   
@@ -169,6 +158,10 @@ export class ActionsPage {
       this.units = this.units + 1;
       this.scorerSaveObj.obj = {'actionId':3,'actionActor':item.lname,'units':this.tempUnits};
     }
+  }
+  
+  saveScorer(e,player){
+    console.log(player);
   }
   
   resetScorer(event){
@@ -235,6 +228,18 @@ export class ActionsPage {
     {
       return false;
     }
+  }
+  
+  saveAndShowLoading() {
+  this.loading = Loading.create({
+    content: 'Saving...'
+  });
+  
+  this.nav.present(this.loading);
+  }
+  
+  afterSave(){
+    this.loading.dismiss();
   }
 
 }

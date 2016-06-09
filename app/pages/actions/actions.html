@@ -65,7 +65,7 @@
   
   <ion-card>
      <img src="img/win.png">
-    <ion-card-header>
+    <ion-item class="cardBg item-border-bottom">
       <ion-row>
           <ion-col width-80>
               Go for <ion-badge> {{winpoints}}</ion-badge>  points
@@ -74,13 +74,13 @@
             <ion-badge>{{winUnits}}</ion-badge> units
           </ion-col>    
         </ion-row>
-    </ion-card-header>
+    </ion-item>
     
-    <ion-item>
+    <ion-item class="cardBg item-border-bottom">
       <ion-row>
         <ion-col width-20>          
             <img src="{{flag1}}">          
-           <ion-item>
+           <ion-item class="cardBg">
             <ion-checkbox secondary checked="true" [(ngModel)]="homewin" (change)="winAction(1)"></ion-checkbox>
           </ion-item>
         </ion-col>
@@ -91,7 +91,7 @@
             </ion-col>
             <ion-col width-33>
                <img src="{{flag1}}">
-               <ion-item>
+               <ion-item class="cardBg">
               <ion-checkbox checked="true" (change)="winAction(3)"></ion-checkbox>
               </ion-item>   
             </ion-col>
@@ -102,14 +102,14 @@
         
         <ion-col width-20>
            <img src="{{flag2}}">
-           <ion-item>
+           <ion-item class="cardBg">
            <ion-checkbox secondary (change)="winAction(2)"></ion-checkbox>
           </ion-item>
         </ion-col>     
       </ion-row>  
     </ion-item>
     
-    <ion-item>
+    <ion-item class="cardBg">
       <ion-row>
         <ion-col width-20>
           <button block (click)="addWin()">+</button>
@@ -126,15 +126,20 @@
   
   <ion-card>
         <img src="img/scorer.png">
-    <ion-card-header>
-      Go for <ion-badge> {{scoreDataPointsRealTime}}</ion-badge>  points |
-      Units <ion-badge> {{scorerUnits}}</ion-badge> : Points
-      <ion-badge> {{scoreDataPointsRealTime}}</ion-badge>
-    </ion-card-header>    
-    <ion-card-content>
+    <ion-item class="cardBg item-border-bottom">
+      <ion-row>
+          <ion-col width-80>
+              Go for <ion-badge> {{scorerPoints}}</ion-badge>  points
+          </ion-col>
+          <ion-col width-20>
+            <ion-badge>{{scorerUnits}}</ion-badge> units
+          </ion-col>    
+        </ion-row>
+    </ion-item>    
+    <ion-card-content class="cardBg">
        <ion-list>
-          <ion-item-sliding *ngFor="#player of players1" (click)="resetScorer($event)">
-            <ion-item >
+          <ion-item-sliding  *ngFor="#player of players1"">
+            <ion-item class="cardBg">
               <ion-avatar item-left>
                   <img src="{{flag1}}">
               </ion-avatar>
@@ -154,7 +159,7 @@
             </ion-item-options>        
           </ion-item-sliding>
           <ion-item-sliding *ngFor="#player of players2">
-            <ion-item >
+            <ion-item class="cardBg">
               <ion-avatar item-left>
                   <img src="{{flag2}}">
               </ion-avatar>
@@ -167,7 +172,7 @@
               <button danger>
                 -
               </button>
-              <button secondary>
+              <button secondary (click)="saveScorer($event, player)">
                 <ion-icon name="call"></ion-icon>
                 Go
               </button>
