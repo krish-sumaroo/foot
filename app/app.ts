@@ -7,12 +7,8 @@ import {RegisterPage} from './pages/register/register';
 import {ActionsPage} from './pages/actions/actions';
 import {FavteamPage} from './pages/favteam/favteam';
 import {ProfilepagePage} from './pages/profilepage/profilepage';
-<<<<<<< Updated upstream
 import {SliderPage} from './pages/slider/slider';
 import {TestPage} from './pages/test/test';
-=======
->>>>>>> Stashed changes
-
 
 
 
